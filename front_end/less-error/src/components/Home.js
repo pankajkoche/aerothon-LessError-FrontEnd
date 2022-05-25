@@ -1,7 +1,7 @@
 import React from 'react';
 import homeImage from '../images/home.svg'
 import styled from 'styled-components';
-import {Routes, Route,BrowserRouter,Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const Home = () => {
     
     return (

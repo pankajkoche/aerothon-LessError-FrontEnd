@@ -1,7 +1,6 @@
 import React from 'react';
-import { Nav,Navbar,NavDropdown,Container } from 'react-bootstrap';
-import {Routes, Route,BrowserRouter,Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Nav,Navbar,Container } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import '../style/header.css'
 
 const Header = props => {
