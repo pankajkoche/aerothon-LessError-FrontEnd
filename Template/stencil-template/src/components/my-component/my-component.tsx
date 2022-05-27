@@ -14,7 +14,7 @@ export class MyComponent {
 
   componentWillLoad(){
     this.APIData='loading...'
-    fetch("http://localhost:5000/testAPI")
+    fetch("http://localhost:5000/Api/getMessage")
     .then(res=>{
       return res.text()
     }).then(res=>{
