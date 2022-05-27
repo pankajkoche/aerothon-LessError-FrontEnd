@@ -70,57 +70,75 @@ export default class Form extends Component {
       const { frontEnd,backEnd,result } = this.state;
     return (
       <div>
-          <input
-                type="radio"
-                name="frontend"
-                value={'React'}
-                onChange={this.onFrontEnd}
-            /> React<br />
-          <input
-                type="radio"
-                name="frontend"
-                value={'Angular'}
-                onChange={this.onFrontEnd}
-            /> Angular<br />
-          <input
-                type="radio"
-                name="frontend"
-                value={'StencilJs'}
-                onChange={this.onFrontEnd}
-            /> StencilJs<br />
-            <br/>
-            <br/>
-         <input
-                type="radio"
-                name="backend"
-                value={'Java'}
+          <div className="card" > 
+            <div className="card-body">
+        <div className="row">
+        <div className="col-sm-6">
+            <div className="card">
+            <div class="card-header">FrontEnd</div>
+            <div className="card-body">
+            <input
+                        type="radio"
+                        name="frontend"
+                        value={'React'}
+                        onChange={this.onFrontEnd}
+                    /> React<br />
+                <input
+                        type="radio"
+                        name="frontend"
+                        value={'Angular'}
+                        onChange={this.onFrontEnd}
+                    /> Angular<br />
+                <input
+                        type="radio"
+                        name="frontend"
+                        value={'StencilJs'}
+                        onChange={this.onFrontEnd}
+                    /> StencilJs<br />
+            </div>
+            </div>
+        </div>
+        <div className="col-sm-6">
+            <div className="card">
+            <div class="card-header">BackEnd</div>
+            <div className="card-body">
+            <input
+                        type="radio"
+                        name="backend"
+                        value={'Java'}
+                        
+                        onChange={this.onBackEnd}
+                    /> Java<br />
+                <input
+                        type="radio"
+                        name="backend"
+                        value={'.net'}
+                        
+                        onChange={this.onBackEnd}
+                    /> .Net<br />
+                <input
+                        type="radio"
+                        name="backend"
+                        value={'nodejs'}
+                        
+                        onChange={this.onBackEnd}
+                    /> Nodejs<br />
+            </div>
+            </div>
+        </div>
+        </div>   
+        <br />
+        <br /> 
+        <a href={result} className="btn btn-danger float-right" onClick={this.downloadFile} download="boilerplate.zip">Download File </a>
+                <br />
                 
-                onChange={this.onBackEnd}
-            /> Java<br />
-         <input
-                type="radio"
-                name="backend"
-                value={'.net'}
-                
-                onChange={this.onBackEnd}
-            /> .Net<br />
-          <input
-                type="radio"
-                name="backend"
-                value={'nodejs'}
-                
-                onChange={this.onBackEnd}
-            /> Nodejs<br />
+                <h1>{this.state.frontEnd}</h1>
+                <br />
+                <h1>{this.state.backEnd}</h1>
+        </div>
 
-          <a href={result} className="btn btn-danger" onClick={this.downloadFile} download="boilerplate.zip">Download File </a>
-          <br />
-         
-          <h1>{this.state.frontEnd}</h1>
-          <br />
-          <h1>{this.state.backEnd}</h1>
-          
-      </div>
-      
+        </div>
+   </div>
     )
   }
 }
