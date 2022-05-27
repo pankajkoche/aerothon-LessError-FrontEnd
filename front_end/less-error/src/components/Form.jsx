@@ -7,10 +7,25 @@ export default class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedFile: zip1,
+            frontEnd: '',
+            backEnd:'',
+            result:zip3
         }
     }
-
+    fetch() {
+        return new Promise(resolve => setTimeout(() => resolve(42), 1000));
+      }
+    fetchAPI=(frontEnd,backEnd)=>{
+        debugger
+        // param is a highlighted word from the user before it clicked the button
+        return fetch("http://localhost:5000/?param=" + frontEnd+backEnd);
+      }
+    downloadFile = (e) => {
+        debugger
+        this.setState({
+            result : zip2,
+        });
+      };
     onButtonClick = (e) => {
         const { value } = e.target;
         switch (value) {
@@ -39,15 +54,71 @@ export default class Form extends Component {
         });
     }
     
+    onFrontEnd=(e)=>{
+        debugger
+        this.setState({
+            frontEnd: e.target.value,
+        });
+    }
+    onBackEnd=(e)=>{
+        debugger
+        this.setState({
+            backEnd: e.target.value,
+        });
+    }
   render() {
-      const { selectedFile } = this.state;
+      const { frontEnd,backEnd,result } = this.state;
     return (
       <div>
-          <input type="radio" name="file" id="file1" value={1} /> React <br />
-          <input type="radio" name="file" id="file1" value={2} /> Angular<br />
-          <input type="radio" name="file" id="file1" value={3} /> StencilJs<br />
+          <input
+                type="radio"
+                name="frontend"
+                value={'React'}
+                onChange={this.onFrontEnd}
+            /> React<br />
+          <input
+                type="radio"
+                name="frontend"
+                value={'Angular'}
+                onChange={this.onFrontEnd}
+            /> Angular<br />
+          <input
+                type="radio"
+                name="frontend"
+                value={'StencilJs'}
+                onChange={this.onFrontEnd}
+            /> StencilJs<br />
+            <br/>
+            <br/>
+         <input
+                type="radio"
+                name="backend"
+                value={'Java'}
+                
+                onChange={this.onBackEnd}
+            /> Java<br />
+         <input
+                type="radio"
+                name="backend"
+                value={'.net'}
+                
+                onChange={this.onBackEnd}
+            /> .Net<br />
+          <input
+                type="radio"
+                name="backend"
+                value={'nodejs'}
+                
+                onChange={this.onBackEnd}
+            /> Nodejs<br />
 
-          <a href={selectedFile} download="boilerplate.zip">Download File </a>
+          <a href={result} className="btn btn-danger" onClick={this.downloadFile} download="boilerplate.zip">Download File </a>
+          <br />
+         
+          <h1>{this.state.frontEnd}</h1>
+          <br />
+          <h1>{this.state.backEnd}</h1>
+          
       </div>
       
     )
